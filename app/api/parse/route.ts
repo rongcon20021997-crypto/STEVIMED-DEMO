@@ -24,7 +24,8 @@ async function parseWithAI(text:string){
   finally{clearTimeout(timer);}
 }
 export async function POST(request:Request){
-  const db=createAdminClient();  let body:unknown;try{body=await request.json();}catch{return NextResponse.json({error:'JSON không hợp lệ.'},{status:400});}
+  void createAdminClient;
+  let body:unknown;try{body=await request.json();}catch{return NextResponse.json({error:'JSON không hợp lệ.'},{status:400});}
   const check=inputSchema.safeParse(body);if(!check.success)return NextResponse.json({error:'Nội dung trống hoặc quá dài.'},{status:422});
   const text=check.data.text,extracted=parseTechnicalRequest(text);
   if(extracted.items.length){const checked=extracted.items.flatMap(item=>{const r=requirementSchema.safeParse(item);return r.success?[r.data]:[];});
