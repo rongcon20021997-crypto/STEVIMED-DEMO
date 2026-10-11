@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';import {mkdtempSync,writeFileSync,rmSync} from 'node:fs';import {tmpdir} from 'node:os';import {join} from 'node:path';
+import {makeZip,csv,htmlReport,exportCaseZip} from '../lib/export-dossier.mjs';
+test('ZIP đúng định dạng và đọc được bằng Python zipfile',()=>{const path=mkdtempSync(join(tmpdir(),'rnd-zip-'));try{const file=join(path,'d.zip');writeFileSync(file,makeZip({'tên.csv':'á à ủ','b.txt':'text'}));const output=execFileSync('python',['-c',`import zipfile;z=zipfile.ZipFile(${JSON.stringify(file)});print(z.read('tên.csv').decode());print(z.testzip())`],{encoding:'utf8'});assert.match(output,/á à ủ/);assert.match(output,/None/);}finally{rmSync(path,{recursive:true,force:true});}});
+test('CSV chặn công thức nguy hiểm và giữ Unicode',()=>{const txt=csv(['Tên'],[['=HYPERLINK("x")'],['Khăn đa dụng']]);assert.match(txt,/"'=HYPERLINK/);assert.match(txt,/Khăn đa dụng/);});
+test('HTML escape nội dung người dùng, bản nháp hiện cảnh báo',()=>{const record={dossier:{productName:'<script>',baseCode:'X',baseVersion:2,strategy:'new_version',bom:[],comparisons:[],tds:{},sop:{}},status:'draft',revision:1};const html=htmlReport(record);assert.doesNotMatch(html,/<script>/);assert.match(html,/BẢN NHÁP/);});

@@ -1,0 +1,40 @@
+{
+  "name": "rnd-ai-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "import:data": "tsx scripts/import-excel.ts",
+    "import:tds": "tsx scripts/import-tds.ts",
+    "fix:legacy": "node scripts/cleanup-legacy.mjs",
+    "predev": "node scripts/cleanup-legacy.mjs --auto",
+    "prebuild": "node scripts/cleanup-legacy.mjs --auto",
+    "verify:pdf": "node scripts/verify-pdf-runtime.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.0",
+    "lucide-react": "^0.468.0",
+    "next": "^15.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.2",
+    "pdfmake": "^0.2.20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.22.0",
+    "eslint-config-next": "^15.5.0",
+    "exceljs": "^4.4.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.3",
+    "@eslint/eslintrc": "^3.2.0",
+    "dotenv": "^16.4.7"
+  }
+}

@@ -1,0 +1,2 @@
+import type {ProductCandidate} from './types';
+export function draftBom(candidate:ProductCandidate):Array<{sequence:number;itemType:string;itemName:string;quantity:number;widthCm:number|null;lengthCm:number|null;heightCm:number|null;tolerancePct:number;materialRequirement:string;existingReference:string|null;proposedCode:string|null;action:'reuse_pending_document_review'|'review_component_or_create_new'|'find_existing_or_create_new';reviewNotes:string}>;

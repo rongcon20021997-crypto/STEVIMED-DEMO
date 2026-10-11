@@ -1,0 +1,1 @@
+export function parseTdsText(text?:string):{items:Array<{line_no:number;component_code:string;component_name:string;quantity:number;width_cm:number;length_cm:number;height_cm:number|null;raw_line:string}>;packaging:string|null;packagingText:string;sterilizationVerified:boolean;sourceCode:string|null;sourceVersion:number|null;warnings:string[]};

@@ -1,0 +1,251 @@
+{
+  "tds": {
+    "items": [
+      {
+        "line_no": 1,
+        "component_code": "SP.01.01-04",
+        "component_name": "Khăn trải bàn dụng cụ L",
+        "quantity": 1,
+        "width_cm": 140,
+        "length_cm": 200,
+        "height_cm": null,
+        "raw_line": "1 SP.01.01-04        Khăn trải bàn dụng cụ L          1    140 x 200 - Khăn được cấu tạo từ hai lớp:      - Đặt bộ khăn sao cho chiều"
+      },
+      {
+        "line_no": 2,
+        "component_code": "SP.01.01-04",
+        "component_name": "Khăn trải bàn dụng cụ L",
+        "quantity": 1,
+        "width_cm": 140,
+        "length_cm": 200,
+        "height_cm": null,
+        "raw_line": "2 SP.01.01-04        Khăn trải bàn dụng cụ L          1    140 x 200 - Khăn được cấu tạo từ hai lớp:      - Đặt bộ khăn sao cho chiều"
+      },
+      {
+        "line_no": 3,
+        "component_code": "SP.01.14-01",
+        "component_name": "Khăn không keo thấm",
+        "quantity": 2,
+        "width_cm": 30,
+        "length_cm": 35,
+        "height_cm": null,
+        "raw_line": "3 SP.01.14-01        Khăn không keo thấm              2     30 x 35    - Được cấu tạo từ siêu thấm 130 - Sử dụng để thấm máu, dịch lỏng."
+      },
+      {
+        "line_no": 4,
+        "component_code": "SP.01.14-03",
+        "component_name": "Khăn không keo",
+        "quantity": 1,
+        "width_cm": 100,
+        "length_cm": 100,
+        "height_cm": null,
+        "raw_line": "4 SP.01.14-03        Khăn không keo                   1    100 x 100 - Vải không dệt 5 lớp SMMMS 50 - Sử dụng để thấm máu, dịch lỏng."
+      },
+      {
+        "line_no": 5,
+        "component_code": "SP.28.04-01",
+        "component_name": "Túi dụng cụ",
+        "quantity": 1,
+        "width_cm": 35,
+        "length_cm": 40,
+        "height_cm": null,
+        "raw_line": "5 SP.28.04-01        Túi dụng cụ                      1     35 x 40    - Được cấu tạo từ plastic trong,   - Được sử dụng để chứa dụng cụ"
+      },
+      {
+        "line_no": 6,
+        "component_code": "SP.22.01-04",
+        "component_name": "Băng keo OP",
+        "quantity": 2,
+        "width_cm": 9,
+        "length_cm": 50,
+        "height_cm": null,
+        "raw_line": "6 SP.22.01-04        Băng keo OP                      2      9 x 50    - Băng keo y tế chất liệu acrylic, Dùng để cố định các ống dây"
+      },
+      {
+        "line_no": 7,
+        "component_code": "SP.28.05-01",
+        "component_name": "Túi kim chỉ",
+        "quantity": 1,
+        "width_cm": 18,
+        "length_cm": 20,
+        "height_cm": null,
+        "raw_line": "7 SP.28.05-01        Túi kim chỉ                      1     18 x 20    - Được cấu tạo từ plastic trong,   - Được sử dụng để chứa kim chỉ."
+      },
+      {
+        "line_no": 8,
+        "component_code": "SP.01.07-04",
+        "component_name": "Khăn phủ bên",
+        "quantity": 2,
+        "width_cm": 80,
+        "length_cm": 120,
+        "height_cm": null,
+        "raw_line": "8 SP.01.07-04        Khăn phủ bên                     2     80 x 120 - Chất liệu từ vải không dệt cao    - Đặt khăn sao cho phần băng"
+      },
+      {
+        "line_no": 9,
+        "component_code": "SP.01.08-07",
+        "component_name": "Khăn phủ chân",
+        "quantity": 1,
+        "width_cm": 200,
+        "length_cm": 250,
+        "height_cm": null,
+        "raw_line": "9 SP.01.08-07        Khăn phủ chân                    1    200 x 250 - Chất liệu từ vải không dệt cao    - Đặt khăn sao cho phần băng"
+      },
+      {
+        "line_no": 10,
+        "component_code": "SP.01.09-07",
+        "component_name": "Khăn phủ đầu",
+        "quantity": 1,
+        "width_cm": 120,
+        "length_cm": 230,
+        "height_cm": null,
+        "raw_line": "10 SP.01.09-07       Khăn phủ đầu                     1    120 x 230 - Chất liệu từ vải không dệt cao    - Đặt khăn sao cho phần băng"
+      },
+      {
+        "line_no": 11,
+        "component_code": "SP.01.13-08",
+        "component_name": "Khăn có keo",
+        "quantity": 5,
+        "width_cm": 80,
+        "length_cm": 120,
+        "height_cm": null,
+        "raw_line": "11 SP.01.13-08       Khăn có keo                      5     80 x 120 - Khăn được cấu tạo từ vải không - Đặt khăn sao cho phần nhãn có"
+      },
+      {
+        "line_no": 12,
+        "component_code": "SP.01.20-04",
+        "component_name": "Khăn phủ vùng sinh dục",
+        "quantity": 1,
+        "width_cm": 19,
+        "length_cm": 35,
+        "height_cm": null,
+        "raw_line": "12 SP.01.20-04       Khăn phủ vùng sinh dục           1     19 x 35    - Khăn được cấu tạo từ vải không - Gỡ phần giấy tráng silicon trên"
+      },
+      {
+        "line_no": 13,
+        "component_code": "SP.01.22-03",
+        "component_name": "Khăn phủ dụng cụ có keo",
+        "quantity": 1,
+        "width_cm": 100,
+        "length_cm": 200,
+        "height_cm": null,
+        "raw_line": "13 SP.01.22-03       Khăn phủ dụng cụ có keo          1    100 x 200 - Khăn được cấu tạo từ vải không - Tháo bỏ lớp giấy silicon trên"
+      },
+      {
+        "line_no": 14,
+        "component_code": "SP.01.22-01",
+        "component_name": "Khăn phủ dụng cụ",
+        "quantity": 1,
+        "width_cm": 150,
+        "length_cm": 160,
+        "height_cm": null,
+        "raw_line": "14 SP.01.22-01       Khăn phủ dụng cụ                 1    150 x 160 - Được cấu tạo từ màng plastic 40 - Tháo bỏ lớp giấy silicon trên"
+      },
+      {
+        "line_no": 15,
+        "component_code": "VL.19.07-02",
+        "component_name": "Bông nén cầm máu 30mm",
+        "quantity": 1,
+        "width_cm": 3,
+        "length_cm": 3.5,
+        "height_cm": null,
+        "raw_line": "15 VL.19.07-02      Bông nén cầm máu 30mm              1    3 x 3.5   - Bông nén cầm máu tiệt trùng     - Dùng cho việc cầm máu sau khi"
+      },
+      {
+        "line_no": 16,
+        "component_code": "VL.19.07-01",
+        "component_name": "Bông nén cầm máu 15mm",
+        "quantity": 1,
+        "width_cm": 1.5,
+        "length_cm": 2.2,
+        "height_cm": null,
+        "raw_line": "16 VL.19.07-01       Bông nén cầm máu 15mm             1   1.5 x 2.2 - Bông nén cầm máu tiệt trùng      - Dùng cho việc cầm máu sau khi"
+      }
+    ],
+    "packaging": "giấy/PET",
+    "packagingText": "- Bộ khăn được đóng gói trong bao giấy/PET.",
+    "sterilizationVerified": false,
+    "sourceCode": "TM.08.04-15",
+    "sourceVersion": 2,
+    "warnings": [
+      "TDS chưa có bằng chứng trực tiếp về tiệt trùng."
+    ]
+  },
+  "catalog": [
+    {
+      "code": "SP.01.01-04",
+      "name": "Khăn trải bàn dụng cụ L",
+      "tds_description": "- Khăn được cấu tạo từ hai lớp: Lớp plastic màu và lớp vải không dệt 5 lớp. Cả hai lớp đều không thấm nước đảm bảo đúng nguyên tắc phòng mổ."
+    },
+    {
+      "code": "SP.01.07-04",
+      "name": "Khăn phủ bên",
+      "tds_description": "- Chất liệu từ vải không dệt cao cấp 5 lớp SMMMS 50gsm, không thấm nước, không thấm cồn, chống tĩnh điện, được gia cố vùng thấm hút đặc biệt, có băng keo y tế, không gây kích ứng da"
+    },
+    {
+      "code": "SP.01.08-07",
+      "name": "Khăn phủ chân",
+      "tds_description": "- Chất liệu từ vải không dệt cao cấp 5 lớp SMMMS 50gsm, không thấm cồn, không thấm nước, chống tĩnh điện, có tấm cố định các ống dây và băng keo y tế, không gây kích ứng da"
+    },
+    {
+      "code": "SP.01.09-07",
+      "name": "Khăn phủ đầu",
+      "tds_description": "- Chất liệu từ vải không dệt cao cấp 5 lớp SMMMS 50gsm được gia cố vùng thấm hút đặc biệt và băng keo y tế, không gây kích ứng da, phía đầu khăn được cấu tạo từ màng plastic trong."
+    },
+    {
+      "code": "SP.01.13-08",
+      "name": "Khăn có keo",
+      "tds_description": "- Khăn được cấu tạo từ vải không dệt 5 lớp SMMMS 50gsm không thấm nước, không thấm cồn, chống tĩnh điện\n- Có băng keo y tế, không gây kích ứng da#- SMMMS nonwoven and medical tape"
+    },
+    {
+      "code": "SP.01.14-01",
+      "name": "Khăn không keo thấm",
+      "tds_description": "- Được cấu tạo từ siêu thấm 130 gsm, có khả năng thấm hút đặc biệt, thấm hút nhanh, hoàn toàn#- Super absorbent nonwoven"
+    },
+    {
+      "code": "SP.01.14-03",
+      "name": "Khăn không keo",
+      "tds_description": "- Vải không dệt 5 lớp SMMMS 50 gsm, thấm hút tốt#- Absorbent nonwoven"
+    },
+    {
+      "code": "SP.01.20-04",
+      "name": "Khăn phủ vùng sinh dục",
+      "tds_description": "- Khăn được cấu tạo từ vải không dệt 5 lớp 43 gsm, không thấm nước, không thấm cồn, chống tĩnh điện. Có băng keo y tế xung quanh"
+    },
+    {
+      "code": "SP.01.22-01",
+      "name": "Khăn phủ dụng cụ",
+      "tds_description": "- Được cấu tạo từ màng plastic 40 micron, có độ trong suốt cao.#- Clear plastic"
+    },
+    {
+      "code": "SP.01.22-03",
+      "name": "Khăn phủ dụng cụ có keo",
+      "tds_description": "- Khăn được cấu tạo từ vải không dệt 5 lớp SMMMS 50gsm\n- Có băng keo y tế không gây kích ứng da."
+    },
+    {
+      "code": "SP.22.01-04",
+      "name": "Băng keo OP",
+      "tds_description": "- Băng keo y tế chất liệu acrylic, co giãn tốt, dính tốt trên da trong thời gian phẫu thuật dài, không gây kích ứng da. \n- Có mối gỡ sẳn, tiện lợi khi sử dụng."
+    },
+    {
+      "code": "SP.28.04-01",
+      "name": "Túi dụng cụ",
+      "tds_description": "- Được cấu tạo từ plastic trong, có băng keo dầu.#- Clear plastic with tape."
+    },
+    {
+      "code": "SP.28.05-01",
+      "name": "Túi kim chỉ",
+      "tds_description": "- Được cấu tạo từ plastic trong, có băng keo dầu."
+    },
+    {
+      "code": "VL.19.07-01",
+      "name": "Bông nén cầm máu 15mm x 22mm x 35mm (M)",
+      "tds_description": ""
+    },
+    {
+      "code": "VL.19.07-02",
+      "name": "Bông nén cầm máu 30mm x 35mm x 60mm (L)",
+      "tds_description": ""
+    }
+  ]
+}

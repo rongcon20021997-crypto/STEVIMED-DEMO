@@ -1,0 +1,2 @@
+export function extractConditions(text?:string):{packaging:string|null;packagingText:string|null;requiresSterile:boolean;sterilizationText:string|null};
+export function parseTechnicalRequest(text?:string):{items:Array<{id:string;sourceIndex:number;name:string;quantity:number;widthCm:number|null;lengthCm:number|null;heightCm:number|null;tolerancePct:number;material:string;notes:string;itemType:'SEMIPRODUCT'|'MATERIAL'|'UNKNOWN'}>;conditions:ReturnType<typeof extractConditions>;warnings:string[];ignored:string[]};

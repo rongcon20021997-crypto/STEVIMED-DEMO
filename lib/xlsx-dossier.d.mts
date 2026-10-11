@@ -1,0 +1,9 @@
+export function workbookXlsx(record:any,sheets:any[]):Buffer;
+export function bomWorkbook(record:any):Buffer;
+export function tdsWorkbook(record:any):Buffer;
+export function differencesWorkbook(record:any):Buffer;
+export const dossierColumns:Record<string,string[]>;
+export function bomRows(d:any):unknown[][];
+export function tdsRows(d:any):unknown[][];
+export function sopRows(d:any):unknown[][];
+export function compareRows(d:any):unknown[][];
