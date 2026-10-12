@@ -5,6 +5,7 @@ import {bomWorkbook,tdsWorkbook,differencesWorkbook} from '@/lib/xlsx-dossier.mj
 import {dossierPdf} from '@/lib/pdf-dossier.mjs';
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
+export const maxDuration=30;
 
 const formats=['report-pdf','bom-xlsx','tds-xlsx','tds-pdf','sop-pdf','differences-xlsx','zip','print'] as const;
 type ExportFormat=(typeof formats)[number];

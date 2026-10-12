@@ -16,8 +16,22 @@ const nextConfig: NextConfig = {
     "@foliojs-fork/fontkit",
   ],
   outputFileTracingIncludes: {
-    "/api/cases/*/export": [
+    "/api/cases/[id]/export": [
+      "./node_modules/@foliojs-fork/fontkit/**/*",
       "./node_modules/@foliojs-fork/fontkit/data.trie",
+      "./node_modules/pdfmake/build/**/*",
+      "./node_modules/pdfmake/build/vfs_fonts.js",
+    ],
+    "/api/cases/*/export": [
+      "./node_modules/@foliojs-fork/fontkit/**/*",
+      "./node_modules/@foliojs-fork/fontkit/data.trie",
+      "./node_modules/pdfmake/build/**/*",
+      "./node_modules/pdfmake/build/vfs_fonts.js",
+    ],
+    "/api/**/*": [
+      "./node_modules/@foliojs-fork/fontkit/**/*",
+      "./node_modules/@foliojs-fork/fontkit/data.trie",
+      "./node_modules/pdfmake/build/**/*",
       "./node_modules/pdfmake/build/vfs_fonts.js",
     ],
   },

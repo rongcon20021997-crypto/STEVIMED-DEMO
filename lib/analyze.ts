@@ -16,14 +16,33 @@ async function fetchPaged<T>(base:()=>any, maxRows=30000):Promise<T[]> {
   return result;
 }
 function chunks<T>(a:T[],count:number){const out:T[][]=[];for(let i=0;i<a.length;i+=count)out.push(a.slice(i,i+count));return out;}
+
+let catalogCache: { data: CatalogItem[]; timestamp: number } | null = null;
+const CATALOG_CACHE_TTL = 5 * 60 * 1000;
+
+export function invalidateCatalogCache() {
+  catalogCache = null;
+}
+
 export async function performAnalysis(db:SupabaseClient, reqs:RequirementItem[],requestText=''):Promise<{candidates:ProductCandidate[];meta:{matchedCatalogCodes:number;candidateProducts:number;warnings:string[]}}>{
-  const catalog=await fetchPaged<CatalogItem>(()=>db.from('catalog_items').select('id,code,version,category,name,width_cm,length_cm,height_cm,tds_description'),30000);
+  let catalog: CatalogItem[];
+  const now = Date.now();
+  if (catalogCache && now - catalogCache.timestamp < CATALOG_CACHE_TTL) {
+    catalog = catalogCache.data;
+  } else {
+    catalog = await fetchPaged<CatalogItem>(()=>db.from('catalog_items').select('id,code,version,category,name,width_cm,length_cm,height_cm,tds_description'),30000);
+    catalogCache = { data: catalog, timestamp: now };
+  }
+
   const componentsCatalog=catalog.filter(x=>x.category!=='FINPRODUCT');
   const catalogByCode=new Map<string,CatalogItem>();
   for(const item of componentsCatalog)if(!catalogByCode.has(item.code))catalogByCode.set(item.code,item);
   const matchingCodes=new Set<string>();
   for(const req of reqs){
-    const found=componentsCatalog.map(item=>({item,score:itemSimilarity(req,item).score,nameScore:itemSimilarity(req,item).nameScore}))
+    const found=componentsCatalog.map(item=>{
+      const sim = itemSimilarity(req, item);
+      return {item, score: sim.score, nameScore: sim.nameScore};
+    })
       .filter(x=>x.nameScore>=0.34||Boolean(req.code&&req.code===x.item.code))
       .sort((a,b)=>b.score-a.score).slice(0,5);
     found.forEach(x=>matchingCodes.add(x.item.code));
@@ -31,16 +50,19 @@ export async function performAnalysis(db:SupabaseClient, reqs:RequirementItem[],
   const codes=[...matchingCodes];
   if(!codes.length)return {candidates:[],meta:{matchedCatalogCodes:0,candidateProducts:0,warnings:['Không nhận diện được BTP/NVL; hãy kiểm tra tên, kích thước hoặc mã cấu kiện.']}};
   const keyHits=new Map<string,Set<string>>();
-  for(const group of chunks(codes,35)){
+  for(const group of chunks(codes,60)){
     const hits=await fetchPaged<{product_key:string;component_code:string}>(()=>db.from('bom_components').select('product_key,component_code').in('component_code',group),15000);
     for(const hit of hits){if(!keyHits.has(hit.product_key))keyHits.set(hit.product_key,new Set());keyHits.get(hit.product_key)!.add(hit.component_code);}
   }
   const finProductKeys=new Set(catalog.filter(x=>x.category==='FINPRODUCT').map(x=>x.id));
   const prioritized=[...keyHits.entries()].filter(([key])=>finProductKeys.has(key)).sort((a,b)=>b[1].size-a[1].size).map(x=>x[0]);
   if(!prioritized.length)return {candidates:[],meta:{matchedCatalogCodes:codes.length,candidateProducts:0,warnings:['Không tìm thấy thành phẩm chứa các BTP/NVL tra cứu được.']}};
-  const candidatesCatalog=catalog.filter(x=>x.category==='FINPRODUCT'&&prioritized.includes(x.id));
+
+  // Deep query the top 40 candidates with the highest hit count for detailed BOM/TDS verification
+  const targetProducts = prioritized.slice(0, 40);
+  const candidatesCatalog=catalog.filter(x=>x.category==='FINPRODUCT'&&targetProducts.includes(x.id));
   const allComponents:BomComponent[]=[];
-  for(const group of chunks(prioritized,15)){
+  for(const group of chunks(targetProducts,50)){
     const rows=await fetchPaged<BomComponent>(()=>db.from('bom_components').select('product_key,component_code,component_name,quantity,quantity_basis,visible_on_tds').in('product_key',group),5000);
     allComponents.push(...rows);
   }
@@ -49,7 +71,7 @@ export async function performAnalysis(db:SupabaseClient, reqs:RequirementItem[],
   type TdsSpec={product_key:string;packaging:string|null;sterilization_verified:boolean};
   const allTds:TdsRow[]=[];const allTdsSpec:TdsSpec[]=[];
   const allDocs:{product_key:string;document_kind:string}[]=[];
-  for(const group of chunks(prioritized,20)){
+  for(const group of chunks(targetProducts,50)){
     const [m,d,t,spec]=await Promise.all([
       fetchPaged<{product_key:string;component_code:string;material_name:string}>(()=>db.from('bom_materials').select('product_key,component_code,material_name').in('product_key',group),9000),
       fetchPaged<{product_key:string;document_kind:string}>(()=>db.from('product_documents').select('product_key,document_kind').in('product_key',group),1000),
