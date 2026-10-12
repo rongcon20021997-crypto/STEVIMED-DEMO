@@ -48,5 +48,9 @@ export async function GET(req:Request,{params}:{params:Promise<{id:string}>}){
   const status=record.status==='published'?'DA_PHAT_HANH':'BAN_NHAP';
   const fileName=`${name}_${id.slice(0,8)}_Rev${Number(record.revision)||1}_${status}.${ext}`;
   return new Response(new Uint8Array(result),{headers:{...headers,'Content-Type':mime,'Content-Disposition':`attachment; filename="${fileName}"`,'Content-Length':String(result.length)}});
- }catch(e){console.error('R&D export error',e);return NextResponse.json({error:'Không thể tạo tài liệu. Kiểm tra thư viện xuất PDF và dữ liệu hồ sơ trên server.'},{status:500});}
+ }catch(e:unknown){
+  const msg=e instanceof Error?e.message:String(e);
+  console.error('R&D export error',e);
+  return NextResponse.json({error:'Không thể tạo tài liệu. Kiểm tra thư viện xuất PDF và dữ liệu hồ sơ trên server.',detail:msg},{status:500});
+ }
 }

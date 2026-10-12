@@ -19,18 +19,21 @@ const nextConfig: NextConfig = {
     "/api/cases/[id]/export": [
       "./node_modules/@foliojs-fork/fontkit/**/*",
       "./node_modules/@foliojs-fork/fontkit/data.trie",
+      "./node_modules/pdfmake/**/*",
       "./node_modules/pdfmake/build/**/*",
       "./node_modules/pdfmake/build/vfs_fonts.js",
     ],
     "/api/cases/*/export": [
       "./node_modules/@foliojs-fork/fontkit/**/*",
       "./node_modules/@foliojs-fork/fontkit/data.trie",
+      "./node_modules/pdfmake/**/*",
       "./node_modules/pdfmake/build/**/*",
       "./node_modules/pdfmake/build/vfs_fonts.js",
     ],
     "/api/**/*": [
       "./node_modules/@foliojs-fork/fontkit/**/*",
       "./node_modules/@foliojs-fork/fontkit/data.trie",
+      "./node_modules/pdfmake/**/*",
       "./node_modules/pdfmake/build/**/*",
       "./node_modules/pdfmake/build/vfs_fonts.js",
     ],
