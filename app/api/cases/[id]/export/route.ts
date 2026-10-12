@@ -25,7 +25,7 @@ export async function GET(req:Request,{params}:{params:Promise<{id:string}>}){
  const {data:record,error}=await db.from('rnd_cases').select('*').eq('id',id).maybeSingle();
  if(error||!record)return NextResponse.json({error:'Không tìm thấy hồ sơ R&D'},{status:404});
  const headers={'Cache-Control':'private, no-store, max-age=0','X-Content-Type-Options':'nosniff'};
- if(format==='print')return new Response(htmlReport(record,{print:true}),{headers:{...headers,'Content-Type':'text/html; charset=utf-8','Content-Security-Policy':"default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'"}});
+ if(format==='print'||format==='report-pdf'||format==='tds-pdf'||format==='sop-pdf')return new Response(htmlReport(record,{print:true}),{headers:{...headers,'Content-Type':'text/html; charset=utf-8','Content-Security-Policy':"default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'"}});
  try{
   let events:{actor_id:string|null;event:string;note:string|null;snapshot_revision:number;created_at:string}[]=[];
   if(format==='report-pdf'||format==='zip'){

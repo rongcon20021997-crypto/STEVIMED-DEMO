@@ -43,7 +43,7 @@ export function CaseEditor({initial,events}:{initial:RecordType;events:Event[]})
   <div className="case-summary-bar"><span className="tag warning-tag"><AlertTriangle size={15}/>{issues.length} mục cần hoàn thiện</span><span className="muted small">{doc.requirements?.length||0} yêu cầu · {doc.bom?.length||0} cấu kiện · {doc.newParts?.length||0} cấu kiện mới</span><span className="case-button-row">
    {editable&&<button className="button secondary" disabled={busy||!changed} onClick={()=>act('save',{revision:record.revision,dossier:doc})}><Save size={16}/> Lưu hồ sơ</button>}
    {editable&&<button className="button primary" disabled={busy||changed||issues.length>0} onClick={()=>act('submit')}><Send size={16}/> Gửi duyệt</button>}
-   <a className="button secondary" href={`/api/cases/${record.id}/export?format=report-pdf`}><FileDown size={16}/> Báo cáo PDF</a>
+   <a className="button secondary" href={`/api/cases/${record.id}/export?format=report-pdf`} target="_blank" rel="noopener noreferrer"><FileDown size={16}/> Báo cáo PDF (In / Lưu PDF)</a>
    <a className="button primary" href={`/api/cases/${record.id}/export?format=zip`}><FileDown size={16}/> Tải toàn bộ ZIP</a>
    </span></div>
   {changed&&<div className="notice"><AlertTriangle size={18}/> Bạn đang có thay đổi chưa lưu. File tải xuống chỉ sử dụng phiên bản hồ sơ đã lưu trên server; hãy bấm Lưu hồ sơ trước khi tải.</div>}
@@ -114,8 +114,8 @@ export function CaseEditor({initial,events}:{initial:RecordType;events:Event[]})
      <a className="button secondary" href={`/api/cases/${record.id}/export?format=report-pdf`}><FileDown size={16}/> Báo cáo R&D (PDF)</a>
      <a className="button secondary" href={`/api/cases/${record.id}/export?format=bom-xlsx`}><FileDown size={16}/> BOM (Excel)</a>
      <a className="button secondary" href={`/api/cases/${record.id}/export?format=tds-xlsx`}><FileDown size={16}/> TDS (Excel)</a>
-     <a className="button secondary" href={`/api/cases/${record.id}/export?format=tds-pdf`}><FileDown size={16}/> TDS (PDF)</a>
-     <a className="button secondary" href={`/api/cases/${record.id}/export?format=sop-pdf`}><FileDown size={16}/> SOP (PDF)</a>
+     <a className="button secondary" href={`/api/cases/${record.id}/export?format=tds-pdf`} target="_blank" rel="noopener noreferrer"><FileDown size={16}/> TDS (In / Lưu PDF)</a>
+     <a className="button secondary" href={`/api/cases/${record.id}/export?format=sop-pdf`} target="_blank" rel="noopener noreferrer"><FileDown size={16}/> SOP (In / Lưu PDF)</a>
      <a className="button secondary" href={`/api/cases/${record.id}/export?format=differences-xlsx`}><FileDown size={16}/> Đối chiếu (Excel)</a>
      <a className="button primary" href={`/api/cases/${record.id}/export?format=zip`}><FileDown size={16}/> Tải toàn bộ ZIP</a>
     </div>
